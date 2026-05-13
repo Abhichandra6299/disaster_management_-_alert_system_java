@@ -46,23 +46,8 @@ public class ModernDashboardPanel extends JPanel {
         title.setFont(new Font("Segoe UI", Font.BOLD, 22));
         title.setForeground(FG_TITLE);
 
-        // Center: Search + Live indicator
-        JPanel search = new JPanel(new BorderLayout(8, 0));
-        search.setOpaque(false);
-
-        JTextField searchField = new JTextField("Live location: Lahore, Pakistan");
-        searchField.setPreferredSize(new Dimension(480, 36));
-        searchField.setBackground(new Color(30, 41, 59));
-        searchField.setForeground(new Color(203, 213, 225));
-        searchField.setBorder(BorderFactory.createEmptyBorder(8, 12, 8, 12));
-        searchField.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-
-        JLabel liveIndicator = new JLabel("⚫ LIVE  5 sec ago");
-        liveIndicator.setFont(new Font("Segoe UI", Font.PLAIN, 11));
-        liveIndicator.setForeground(new Color(100, 200, 100));
-
-        search.add(searchField, BorderLayout.CENTER);
-        search.add(liveIndicator, BorderLayout.EAST);
+        // Center: Location selector (real world cities with coordinates)
+        LocationSelector locationSelector = new LocationSelector();
 
         // Right: User profile
         JPanel profile = new JPanel(new FlowLayout(FlowLayout.RIGHT, 8, 0));
@@ -86,7 +71,7 @@ public class ModernDashboardPanel extends JPanel {
         profile.add(userInfo);
 
         top.add(title, BorderLayout.WEST);
-        top.add(search, BorderLayout.CENTER);
+        top.add(locationSelector, BorderLayout.CENTER);
         top.add(profile, BorderLayout.EAST);
 
         return top;
